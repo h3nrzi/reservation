@@ -18,6 +18,7 @@ A Persian-first marketplace where a customer describes a household problem, rece
 - [Design direction](docs/design/design-direction-v0.1.md)
 - [Design tokens](docs/design/design-tokens-v0.1.md)
 - [UI refinement backlog](docs/ui/ui-refinement-backlog.md)
+- [Base44 progress and review log](docs/prototype/base44-progress.md)
 - [Base44 prompts](prompts/base44/)
 
 ## Prototype checkpoint
