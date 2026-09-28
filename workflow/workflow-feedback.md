@@ -252,6 +252,76 @@ Continue generating pages while logging UI debt. After export, measure whether C
 
 ---
 
+# WF-007 — Expiring Tool Budget Utilization
+
+**Status:** Under Evaluation  
+**Discovered during:** Salon Booking Project / Base44 Daily Credit Limit  
+**Candidate Version:** v0.2
+
+## Current Behavior
+
+The workflow decides what to do next primarily from product/development sequence. It does not explicitly account for tools that have metered credits, daily quotas, temporary execution budgets, or other resources that expire/reset.
+
+## Observation / Problem
+
+Near the Base44 daily reset, a small amount of credit remained. Spending that remaining budget on a broad technical analysis produced less immediate value than using the same expiring budget for a bounded UI refinement pass based on already-known backlog items.
+
+This suggests that tool constraints are part of workflow execution strategy. When a resource will expire anyway, the workflow can opportunistically use the remainder for useful, low-risk work without changing the main product plan.
+
+## Proposed Change
+
+Add a general **Expiring Resource Utilization Rule** for metered tools:
+
+Primary Work  
+→ Check Remaining Expiring Budget  
+→ Select Useful Low-Risk Backlog Work  
+→ Execute Only If It Fits the Remaining Budget  
+→ Allow Quota/Window to Reset
+
+Preferred uses of small expiring budgets, in order:
+
+1. Small, already-understood backlog fixes
+2. Low-risk UI polish / cleanup
+3. Useful validation or QA
+4. Independent tasks likely to complete within the remaining budget
+5. Analysis only when that analysis is actually needed for an upcoming decision
+
+Do not invent work merely to consume quota.
+
+Do not use expiring budget as justification for:
+
+- new unplanned features
+- risky architecture changes
+- broad refactors
+- speculative analysis
+- changes that cannot reasonably complete within the remaining budget
+
+This rule should apply to any tool with non-rollover quotas/credits or reset windows, not only Base44.
+
+If unused quota rolls over, consumption creates additional cost, or the remaining budget has future value, do not spend it merely for utilization.
+
+## Expected Benefit
+
+- Extracts useful value from otherwise expiring tool capacity
+- Reduces waste in quota-limited workflows
+- Encourages bounded tasks that match the available execution budget
+- Can reduce later cleanup cost without disrupting the primary development sequence
+- Makes tool economics an explicit workflow concern
+
+## Risks / Cost
+
+- Can encourage unnecessary work if interpreted as "always use every credit"
+- Small-budget tasks can accidentally expand in scope
+- Opportunistic changes can distract from the main workflow if not backlog-driven
+
+The rule must therefore require useful, known, low-risk work and treat unused quota as acceptable when no suitable task exists.
+
+## Validation
+
+Apply the rule across future Base44 reset cycles and other metered tools. Evaluate whether leftover budget consistently produces useful completed work without creating rework, scope creep, or additional paid usage.
+
+---
+
 # Feedback Template
 
 Future findings should use:
