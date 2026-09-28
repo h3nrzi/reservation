@@ -404,7 +404,7 @@ Do NOT proactively redesign the page repeatedly for minor visual polish during t
 
 Non-blocking issues will be logged in:
 
-`docs/ui/ui-refinement-backlog.md`
+`projects/salon-booking/docs/ui/ui-refinement-backlog.md`
 
 Likely review areas include:
 

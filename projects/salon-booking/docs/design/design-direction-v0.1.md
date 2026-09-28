@@ -247,7 +247,7 @@ During the Base44 foundation and page implementation phases, evaluate whether th
 - Keeps the salon identity premium without becoming stereotypical
 - Gives enough constraint without preventing useful design exploration
 
-Findings should be recorded in `workflow/workflow-feedback.md` where they affect the workflow itself.
+Findings should be recorded in `shared/workflow/workflow-feedback.md` where they affect the workflow itself.
 
 ---
 

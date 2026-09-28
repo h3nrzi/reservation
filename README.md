@@ -1,31 +1,28 @@
-# Reservation — Salon Booking Platform
+# Service POC Portfolio
 
-This repository is the source of truth for product discovery, workflow evolution, architecture decisions, specifications, and implementation for a women's beauty salon booking platform.
+This repository is the central record for a portfolio of distinct service-product proofs of concept. It holds shared working standards and each project's product, design, and planning documents. A project's application code may live in its own repository; link that repository from the project's README when it exists.
 
-## Current Status
+## Start here
 
-**Project phase:** Product Discovery  
-**Workflow:** Controlled Vibe Coding Workflow v0.1 (`Draft / In Use`)
+- [Project catalog](portfolio/project-catalog.md) — the ten candidate POCs and their distinct product problems
+- [Shared workflow](shared/workflow/README.md) — the current cross-project workflow and its feedback log
+- [Salon Booking](projects/salon-booking/README.md) — the existing project and its documents
+- [Project documentation guide](projects/README.md) — where to put documents for future POCs
 
-## Current Documentation
+## Repository map
 
-- `workflow/workflow-v0.1.md` — current workflow baseline
-- `workflow/workflow-feedback.md` — observations and candidate workflow improvements
-- `docs/product/product-brief-v0.1.md` — current product brief
-- `docs/product/page-inventory-draft-v0.1.md` — candidate screen/page inventory
+```text
+portfolio/                 Portfolio choices and project catalog
+shared/workflow/           Cross-project workflow and evidence for improvements
+projects/<project-slug>/   Documents and prompts for one product
+```
 
-## Current Discovery Sequence
+## Documentation rules
 
-Product Brief  
-→ Core User Journeys  
-→ Capability Map  
-→ Booking Model Decisions  
-→ Route / Screen Decisions  
-→ MVP Scope  
-→ Final Page Manifest  
-→ Design Tokens  
-→ Base44 Foundation
+1. Put a rule or process used across projects in `shared/`. Put product requirements, design, prompts, and implementation decisions in that project's directory.
+2. Every project has a `README.md` with its purpose, status, document index, and links to its code or prototype when available.
+3. Add a project directory when work on that project begins. Catalog entries alone do not imply a project has started.
+4. Keep important decisions in repository documents rather than only in chat history. Record workflow observations in the shared feedback log; change the workflow version deliberately.
+5. Preserve the original versioned documents. New versions should make their status and relationship to earlier versions clear.
 
-## Documentation Rule
-
-Important product and workflow decisions should not live only in chat history. When a meaningful checkpoint is reached, the relevant repository documents should be updated so this repository remains the durable project record.
+The GitHub repository is the durable documentation record. Once a POC is exported for engineering, its own code repository becomes the source of truth for implementation, as described in the [workflow](shared/workflow/workflow-v0.1.md).

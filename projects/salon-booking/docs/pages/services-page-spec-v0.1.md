@@ -383,7 +383,7 @@ After Base44 generation, review the page for UI quality but do not automatically
 
 Log issues in:
 
-`docs/ui/ui-refinement-backlog.md`
+`projects/salon-booking/docs/ui/ui-refinement-backlog.md`
 
 Review specifically for:
 
