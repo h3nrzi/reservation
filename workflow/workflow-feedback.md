@@ -257,6 +257,93 @@ Regenerate the Salon Booking foundation from scratch using a Persian-first, RTL-
 
 ---
 
+# WF-006 — Add a UI Quality Gate Before Page Approval
+
+**Status:** Under Evaluation  
+**Discovered during:** Salon Booking Home Page  
+**Candidate Version:** v0.2
+
+## Current Behavior
+
+The emerging page loop is:
+
+Page Spec  
+→ Page Prompt  
+→ Generate  
+→ Review  
+→ Approve / Iterate  
+→ Next Page
+
+The review step is currently broad and can allow a page to be considered structurally approved while visible UI quality issues are intentionally deferred to a later polish phase.
+
+## Observation / Problem
+
+The first generated Home page followed the approved hierarchy and product intent well, but visual review still exposed issues such as:
+
+- inconsistent image/asset quality
+- a broken or missing specialist image placeholder
+- uneven visual consistency between specialist portraits
+- excessive vertical whitespace in some sections
+- small/low-emphasis supporting copy that may reduce readability
+- visual details that are acceptable individually but could compound if repeated across all later pages
+
+Deferring these issues until the end creates a risk that the same visual mistakes become patterns across the application. Fixing them after many pages exist may require larger global rework.
+
+## Proposed Change
+
+Make UI Quality Review an explicit gate inside every page implementation loop:
+
+Page Spec  
+→ Page Prompt  
+→ Generate  
+→ Product/Structure Review  
+→ UI Quality Review  
+→ Targeted Refinement  
+→ Approve & Freeze Page  
+→ Next Page
+
+A page should not be frozen merely because its sections and routes are correct.
+
+The UI Quality Review should deliberately inspect at least:
+
+- visual hierarchy
+- spacing rhythm
+- typography/readability
+- color/contrast
+- asset/image consistency
+- broken/missing assets
+- responsive composition
+- RTL correctness
+- component consistency
+- CTA prominence
+- excessive card/pill/shadow usage
+- alignment with Design Direction and Design Tokens
+
+Issues that reveal a reusable/global problem should be corrected before proceeding to many more pages.
+
+Page-specific imperfections can remain local and should not automatically trigger foundation changes.
+
+## Expected Benefit
+
+- Prevents visual debt from propagating across generated pages
+- Catches reusable UI problems while the affected surface area is still small
+- Makes page approval mean both structurally correct and visually acceptable
+- Creates faster feedback loops for design tokens and reusable components
+- Reduces the size of the final polish/refactor pass
+
+## Risks / Cost
+
+- Adds an iteration cycle to each page
+- Can become subjective or lead to endless polishing if no stopping criteria exist
+
+The review must therefore distinguish between blocking UI defects and optional polish. The goal is to prevent repeated design debt, not to perfect every pixel before moving forward.
+
+## Validation
+
+Apply a targeted UI refinement pass to Home before starting Services. Then observe whether the corrections create reusable rules/components that improve subsequent pages with fewer repeated fixes.
+
+---
+
 # Feedback Template
 
 Future findings should use:
