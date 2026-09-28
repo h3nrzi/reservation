@@ -188,6 +188,75 @@ During the Base44 foundation pass, inspect whether generated components use sema
 
 ---
 
+# WF-005 — Locale & Market Requirements Early in Discovery
+
+**Status:** Under Evaluation  
+**Discovered during:** Salon Booking Project  
+**Candidate Version:** v0.2
+
+## Current Behavior
+
+The workflow captures product goals, journeys, capabilities, pages, and design direction without an explicit early checkpoint for target language, writing direction, calendar, number formatting, currency, and other market-specific presentation requirements.
+
+## Observation / Problem
+
+The first Salon Booking Base44 foundation was generated successfully but in English/LTR because Persian-first requirements had never been made explicit.
+
+This was discovered only after the foundation pass, despite locale affecting typography, layout direction, navigation, steppers, sidebars, icons, calendars, dates, times, numbers, currency formatting, dummy data, and responsive behavior.
+
+Locale is therefore not merely a copy/translation concern. It can materially affect product UX and frontend foundation decisions.
+
+## Proposed Change
+
+Add an explicit Locale & Market Requirements checkpoint near the beginning of discovery:
+
+Product Brief  
+→ Locale & Market Requirements  
+→ Core User Journeys  
+→ Capability Map  
+→ MVP Boundary  
+→ Page Inventory  
+→ Route / Screen Decisions  
+→ Page Manifest  
+→ Design Direction  
+→ Design Tokens  
+→ Foundation Prompt
+
+At minimum, decide or explicitly defer:
+
+- Primary product language(s)
+- LTR / RTL direction
+- Typography/script requirements
+- Numeral policy
+- Calendar system
+- Date formatting
+- Time formatting
+- Currency/unit formatting
+- Locale-specific dummy content
+- RTL/LTR behavior for directional UI
+- Whether localization/i18n architecture is required now or later
+
+## Expected Benefit
+
+- Prevents generating a structurally correct foundation for the wrong locale
+- Makes typography decisions valid for the target script
+- Surfaces RTL implications before layouts/components are generated
+- Prevents calendar/currency/number assumptions from leaking into UI architecture
+- Reduces avoidable regeneration and correction work
+
+## Risks / Cost
+
+- Adds another early discovery checkpoint
+- Teams may over-engineer internationalization when the product is intentionally single-locale
+
+The checkpoint should therefore distinguish between `locale requirements` and `full internationalization architecture`.
+
+## Validation
+
+Regenerate the Salon Booking foundation from scratch using a Persian-first, RTL-native Foundation Prompt v0.2 and compare it with v0.1. Evaluate whether early locale requirements produce a correct foundation without requiring a correction pass.
+
+---
+
 # Feedback Template
 
 Future findings should use:
