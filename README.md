@@ -5,7 +5,7 @@ This repository is the central record for a portfolio of distinct service-produc
 ## Start here
 
 - [Project catalog](portfolio/project-catalog.md) — the ten candidate POCs and their distinct product problems
-- [Shared workflow](shared/workflow/README.md) — the current cross-project workflow and its feedback log
+- [Shared workflow](shared/workflow/README.md) — v0.2 for new POCs, v0.1 history, and the feedback log
 - [Salon Booking](projects/salon-booking/README.md) — the existing project and its documents
 - [Project documentation guide](projects/README.md) — where to put documents for future POCs
 
@@ -25,4 +25,4 @@ projects/<project-slug>/   Documents and prompts for one product
 4. Keep important decisions in repository documents rather than only in chat history. Record workflow observations in the shared feedback log; change the workflow version deliberately.
 5. Preserve the original versioned documents. New versions should make their status and relationship to earlier versions clear.
 
-The GitHub repository is the durable documentation record. Once a POC is exported for engineering, its own code repository becomes the source of truth for implementation, as described in the [workflow](shared/workflow/workflow-v0.1.md).
+The GitHub repository is the durable documentation record. Once a POC is exported for engineering, its own code repository becomes the source of truth for implementation, as described in the [current workflow](shared/workflow/workflow-v0.2.md).

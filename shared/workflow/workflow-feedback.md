@@ -1,6 +1,6 @@
 # Controlled Vibe Coding Workflow — Feedback Log
 
-**Current Workflow Version:** v0.1  
+**Current Workflow Version:** v0.2
 **Status:** Active Evaluation
 
 ## Purpose
@@ -17,15 +17,18 @@ Possible statuses:
 
 - `Observed`
 - `Under Evaluation`
+- `Adopted in v0.2 / Validation Pending`
 - `Accepted for Next Version`
 - `Rejected`
 - `Resolved`
+
+WF-001 through WF-007 were adopted into [workflow v0.2](workflow-v0.2.md) for new POCs. Their validation questions remain open until the workflow has been tried on later projects. Salon Booking continues to record v0.1 as the version it used.
 
 ---
 
 # WF-001 — Missing Discovery Layer Before Page Manifest
 
-**Status:** Under Evaluation  
+**Status:** Adopted in v0.2 / Validation Pending
 **Discovered during:** Salon Booking Project  
 **Candidate Version:** v0.2
 
@@ -56,7 +59,7 @@ Evaluate the final Salon Booking Page Manifest against the original candidate in
 
 # WF-002 — Explicit MVP Boundary Before Final Page Inventory
 
-**Status:** Under Evaluation  
+**Status:** Adopted in v0.2 / Validation Pending
 **Discovered during:** Salon Booking Project  
 **Candidate Version:** v0.2
 
@@ -86,7 +89,7 @@ Evaluate whether the Salon Booking MVP boundary produced a smaller, clearer Page
 
 # WF-003 — Design Direction Before Design Tokens
 
-**Status:** Under Evaluation  
+**Status:** Adopted in v0.2 / Validation Pending
 **Discovered during:** Salon Booking Project  
 **Candidate Version:** v0.2
 
@@ -117,7 +120,7 @@ Apply `Warm Luxury` to the Salon Booking prototype and evaluate consistency and 
 
 # WF-004 — Separate Primitive, Semantic, and Component Tokens
 
-**Status:** Under Evaluation  
+**Status:** Adopted in v0.2 / Validation Pending
 **Discovered during:** Salon Booking Project  
 **Candidate Version:** v0.2
 
@@ -159,7 +162,7 @@ During the Base44 foundation pass, inspect whether generated components use sema
 
 # WF-005 — Locale & Market Requirements Early in Discovery
 
-**Status:** Under Evaluation  
+**Status:** Adopted in v0.2 / Validation Pending
 **Discovered during:** Salon Booking Project  
 **Candidate Version:** v0.2
 
@@ -199,7 +202,7 @@ Regenerate the Salon Booking foundation from scratch using a Persian-first, RTL-
 
 # WF-006 — Review UI Early, Defer Non-Blocking Refinement to Local/Codex
 
-**Status:** Under Evaluation  
+**Status:** Adopted in v0.2 / Validation Pending
 **Discovered during:** Salon Booking Home Page  
 **Candidate Version:** v0.2
 
@@ -254,7 +257,7 @@ Continue generating pages while logging UI debt. After export, measure whether C
 
 # WF-007 — Expiring Tool Budget Utilization
 
-**Status:** Under Evaluation  
+**Status:** Adopted in v0.2 / Validation Pending
 **Discovered during:** Salon Booking Project / Base44 Daily Credit Limit  
 **Candidate Version:** v0.2
 
