@@ -4,9 +4,10 @@ This repository is the central record for a portfolio of distinct service-produc
 
 ## Start here
 
-- [Project catalog](portfolio/project-catalog.md) — ten candidate POCs; none selected yet
+- [Project catalog](portfolio/project-catalog.md) — ten portfolio options; IT Support Desk selected as project two
 - [Current workflow](shared/workflow/workflow.md) — the shared process for future projects
 - [Salon Booking](projects/salon-booking/README.md) — the existing project's current documents
+- [IT Support Desk](projects/it-support-desk/README.md) — project two, in product discovery
 - [Starting a project](projects/README.md) — how a new project session should use this repository
 
 ## Repository map
@@ -15,6 +16,7 @@ This repository is the central record for a portfolio of distinct service-produc
 portfolio/                 Candidate projects and selection decisions
 shared/workflow/           Current cross-project workflow and future observations
 projects/salon-booking/    Existing project documents
+projects/it-support-desk/  Second project documents
 projects/<project-slug>/   Add only when a new project is selected
 ```
 

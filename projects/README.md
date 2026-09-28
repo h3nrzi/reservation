@@ -13,4 +13,4 @@ Start each directory with a `README.md` containing:
 
 Add folders only when needed. Use `docs/product/`, `docs/design/`, `docs/pages/`, `docs/architecture/`, `docs/decisions/`, and `prompts/` as applicable. Keep one canonical file for each current document. Shared methods and rules belong in [`shared/`](../shared/workflow/README.md).
 
-Salon Booking is the only active project recorded here. No next POC has been selected.
+The active project directories are [Salon Booking](salon-booking/README.md) and [IT Support Desk](it-support-desk/README.md). IT Support Desk is selected as the second POC and is in product discovery; its prototype has not started.
