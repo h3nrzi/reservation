@@ -31,33 +31,13 @@ Possible statuses:
 
 ## Current v0.1 Assumption
 
-The initial workflow effectively moves from:
-
-Product Brief  
-→ Page Inventory / Page Manifest  
-→ Design Tokens  
-→ Base44 Foundation
+The initial workflow effectively moves from Product Brief toward Page Inventory / Page Manifest and then Design Tokens / Base44 Foundation.
 
 ## Problem
 
-During discovery for the salon booking project, it became clear that moving directly from a high-level Product Brief to a definitive Page Manifest is premature.
-
-For example, a booking experience may conceptually contain:
-
-- Select service
-- Select specialist
-- Select date
-- Select time
-- Enter details
-- Review booking
-
-These are distinct product steps but are not necessarily distinct pages/routes. They could instead be steps inside one route, components, modals, drawers, nested screens, or separate routes.
-
-A simple page list does not contain enough product information to make that decision correctly. The same issue appeared when considering the management side of the salon application.
+A high-level Product Brief is insufficient for deciding which user steps deserve independent routes. Booking steps, management contexts, tabs, drawers, and modals can otherwise be mistaken for pages.
 
 ## Proposed Improvement
-
-Introduce an explicit discovery layer:
 
 Product Brief  
 → Core User Journeys  
@@ -70,17 +50,14 @@ Product Brief
 
 ## Expected Benefit
 
-This should reduce:
-
-- Premature route decisions
-- Artificially high page counts
-- Confusion between user steps and application pages
-- Missing management capabilities
-- UI architecture decisions based on incomplete product understanding
+- Fewer premature route decisions
+- Less confusion between steps and pages
+- Better coverage of management capabilities
+- More intentional UI architecture
 
 ## Validation Required
 
-Continue the salon project using this expanded discovery process. After the Page Manifest is produced, evaluate whether the additional steps improved route decisions, reduced ambiguity, or added unnecessary process.
+Evaluate the final Salon Booking Page Manifest against the original candidate inventory and assess whether the added discovery steps reduced ambiguity without excessive process.
 
 ---
 
@@ -90,19 +67,11 @@ Continue the salon project using this expanded discovery process. After the Page
 **Discovered during:** Salon Booking Project  
 **Candidate Version:** v0.2
 
-## Current Behavior
-
-The emerging discovery sequence identifies product capabilities and then moves toward page/screen definition.
-
 ## Observation / Problem
 
-A capability map naturally includes both essential product capabilities and attractive future capabilities such as waitlists, loyalty, reviews, payments, promotions, memberships, gift cards, and reporting.
-
-If page inventory is finalized directly from the full capability map, future capabilities can accidentally become part of the Base44 prototype. This increases page count, product complexity, and prototype scope before the core booking loop has been validated.
+Capability maps naturally contain both core and future capabilities. Without an explicit scope boundary, backlog features can silently become Base44 prototype requirements.
 
 ## Proposed Change
-
-Add an explicit MVP boundary before final page inventory:
 
 Product Brief  
 → Core User Journeys  
@@ -114,20 +83,17 @@ Product Brief
 
 ## Expected Benefit
 
-- Keeps Base44 focused on the first product scope.
-- Prevents backlog capabilities from silently becoming prototype requirements.
-- Makes page inventory easier to reason about.
-- Creates a durable distinction between `not now` and `not part of the product`.
-- Reduces wasted UI generation and later deletion.
+- Keeps Base44 focused on first-product scope
+- Separates `not now` from `not part of the product`
+- Reduces unnecessary page generation and later deletion
 
 ## Risks / Cost
 
-- Adds another explicit discovery checkpoint.
-- Poor MVP decisions could prematurely exclude capabilities that materially affect UX architecture.
+Adds a discovery checkpoint and requires deliberate MVP decisions.
 
 ## Validation
 
-Use the Salon Booking Project's MVP boundary to revise the candidate page inventory. Evaluate whether it produces a smaller, clearer, and more coherent Page Manifest without blocking obvious future evolution.
+Evaluate whether the Salon Booking MVP boundary produced a smaller, clearer Page Manifest without blocking obvious future evolution.
 
 ---
 
@@ -137,56 +103,88 @@ Use the Salon Booking Project's MVP boundary to revise the candidate page invent
 **Discovered during:** Salon Booking Project  
 **Candidate Version:** v0.2
 
-## Current Behavior
-
-The current workflow moves from Page Manifest directly to Design Tokens before the Base44 foundation pass.
-
 ## Observation / Problem
 
-Design tokens should encode intentional visual decisions. If colors, typography, radius, shadows, density, and other tokens are selected without first agreeing on a visual/product direction, the token values become arbitrary implementation choices rather than a coherent design system.
-
-The salon project exposed this when choosing between distinct directions such as warm luxury, modern minimal, and soft premium. Each direction could produce a valid but materially different token system.
+Design tokens should encode intentional visual decisions. Selecting colors, typography, radius, shadows, and density before agreeing on visual direction makes token values arbitrary implementation choices.
 
 ## Proposed Change
-
-Add an explicit Design Direction checkpoint before Design Tokens:
 
 Page Manifest  
 → Design Direction  
 → Design Tokens  
 → Base44 Foundation Prompt
 
-Design Direction should define enough intent to guide token creation, including where relevant:
-
-- Visual personality
-- Brand mood
-- Customer-facing character
-- Operational/admin character
-- Density
-- Photography/imagery role
-- Typography direction
-- Color direction
-- Surface/border/shadow philosophy
-- General interaction feel
-
-It should avoid prematurely specifying every component or raw implementation value.
+Design Direction should define visual personality, brand mood, customer/admin character, density, imagery role, typography/color direction, and surface philosophy without becoming a component-level specification.
 
 ## Expected Benefit
 
-- Makes design tokens traceable to explicit design intent.
-- Reduces arbitrary color/radius/typography choices.
-- Improves consistency between customer and admin surfaces.
-- Gives Base44 clearer visual constraints before generation.
-- Makes later design changes easier because the rationale exists above the token layer.
+- Tokens become traceable to design intent
+- Better customer/admin consistency
+- Fewer arbitrary styling choices
+- Clearer Base44 constraints
 
 ## Risks / Cost
 
-- Adds another discovery/design checkpoint.
-- An overly detailed Design Direction could become a premature design specification and reduce useful exploration.
+An overly detailed direction phase could reduce useful design exploration.
 
 ## Validation
 
-Apply the selected `Warm Luxury` direction to Design Tokens v0.1 for the Salon Booking Project. During Base44 generation, evaluate whether the direction materially improves consistency and reduces prompt correction cycles.
+Apply `Warm Luxury` to the Salon Booking prototype and evaluate consistency and correction cycles.
+
+---
+
+# WF-004 — Separate Primitive, Semantic, and Component Tokens
+
+**Status:** Under Evaluation  
+**Discovered during:** Salon Booking Project  
+**Candidate Version:** v0.2
+
+## Current Behavior
+
+The workflow requires Design Tokens but does not explicitly prescribe token layering.
+
+## Observation / Problem
+
+A generic instruction to create design tokens may produce only a raw palette. Generated components can then couple directly to primitive values such as `rose-700`, arbitrary hex values, or one-off Tailwind utilities.
+
+That weakens themeability and makes future brand changes expensive because visual intent is distributed throughout application components.
+
+## Proposed Change
+
+Require Design Tokens to follow this dependency direction:
+
+Primitive Tokens  
+→ Semantic Tokens  
+→ Component Usage / Variants  
+→ UI
+
+Example:
+
+`rose-700`  
+→ `primary`  
+→ Primary Button  
+→ Booking CTA
+
+Application components should prefer semantic tokens whenever an appropriate semantic token exists.
+
+## Expected Benefit
+
+- Cleaner Tailwind/theme configuration
+- Easier brand/theme changes
+- Less arbitrary styling in generated code
+- Better separation between palette and product meaning
+- More consistent component states
+
+## Risks / Cost
+
+- Adds token-system structure to relatively small prototypes
+- Too many semantic/component tokens could become unnecessary abstraction
+
+The workflow should therefore require meaningful semantic layering without demanding exhaustive tokenization before evidence exists.
+
+## Validation
+
+During the Base44 foundation pass, inspect whether generated components use semantic styling consistently and whether raw hex/primitive values remain appropriately centralized.
 
 ---
 
