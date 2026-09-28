@@ -31,6 +31,8 @@ Use one fictional company, a small fixed set of employees and agents, and determ
 3. Employee sees the status and conversation, then closes the resolved ticket or reopens it. **Closed** is the final display state for this demo.
 4. Manager scans counts and a simple at-risk/overdue list, then opens a ticket for context.
 
+The requester-supplied urgency is a report of perceived impact; support agents set the displayed operational priority. The prototype does not imply an automatic mapping between them.
+
 Demo interactions may update in-memory state; predictable reset behavior should restore the seeded scenario. Mock timestamps and SLA targets should be internally consistent. Show empty, validation, and error/blocked-action states where they matter to the journey, without pretending that messages, notifications, or data persist remotely.
 
 ## Out of scope for this POC
@@ -39,7 +41,7 @@ Real login and permissions; backend, database, API, persistence across sessions,
 
 ## Open decisions before Base44
 
-- Locale, language, writing direction, typography, date/time format, and sample-content conventions need explicit agreement before routes and visual design are approved.
-- Choose whether priority is agent-set only, and define the few visible priority and SLA examples. These are demonstration rules, not a final policy.
+- Persian and RTL are confirmed. The [locale document](locale-requirements.md) records prototype defaults for calendar, time zone, numerals, and mixed-direction technical content; those defaults remain reviewable.
+- Define the few visible priority and SLA examples before detailed page implementation. These are demonstration rules, not a final policy.
 
-The next artifacts are a brief locale decision, approved page manifest, and design direction. Base44 should then create only route/layout placeholders and stop for review. Page implementation follows incrementally. After prototype approval: export to localhost, assess generated architecture with Codex, define domain and interface contracts, build backend slices, and replace mock data through those contracts. Do not predesign database tables at this stage.
+The [page manifest](page-manifest.md), [design direction](../design/design-direction.md), and [foundation prompt](../../prompts/base44/foundation.md) are prepared for review. Once the prototype defaults and route plan are accepted, Base44 should create only route/layout placeholders and stop for review. Page implementation follows incrementally. After prototype approval: export to localhost, assess generated architecture with Codex, define domain and interface contracts, build backend slices, and replace mock data through those contracts. Do not predesign database tables at this stage.

@@ -6,14 +6,18 @@ An internal help desk for a small company. Employees need a clear way to report 
 
 **Phase:** Product discovery. Frontend-only Base44 prototype with deterministic dummy data is planned; no prototype has been generated or reviewed.
 
-**Next decision:** Confirm locale, writing direction, date/time presentation, and the proposed route list before the Base44 foundation prompt. Then agree on design direction and tokens. See the [current shared workflow](../../shared/workflow/workflow.md).
+**Next decision:** Review the prototype formatting defaults, route plan, and design direction before using the Base44 foundation prompt. See the [current shared workflow](../../shared/workflow/workflow.md).
 
 ## Current documents
 
 - [Product brief and POC boundary](docs/product/product-brief.md)
+- [Locale requirements](docs/product/locale-requirements.md)
 - [Core journeys](docs/product/core-journeys.md)
 - [Capability map](docs/product/capability-map.md)
 - [Proposed page manifest](docs/product/page-manifest.md)
+- [Proposed design direction](docs/design/design-direction.md)
+- [Initial design tokens](docs/design/design-tokens.md)
+- [Prepared Base44 foundation prompt](prompts/base44/foundation.md)
 
 ## Prototype and code
 
