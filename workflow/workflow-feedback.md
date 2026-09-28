@@ -39,14 +39,7 @@ A high-level Product Brief is insufficient for deciding which user steps deserve
 
 ## Proposed Improvement
 
-Product Brief  
-→ Core User Journeys  
-→ Capability Map  
-→ Page Inventory Candidate  
-→ Route / Screen Decisions  
-→ Page Manifest  
-→ Design Tokens  
-→ Base44
+Product Brief → Core User Journeys → Capability Map → Page Inventory Candidate → Route / Screen Decisions → Page Manifest → Design Tokens → Base44
 
 ## Expected Benefit
 
@@ -73,13 +66,7 @@ Capability maps naturally contain both core and future capabilities. Without an 
 
 ## Proposed Change
 
-Product Brief  
-→ Core User Journeys  
-→ Capability Map  
-→ MVP Boundary  
-→ Page Inventory  
-→ Route / Screen Decisions  
-→ Page Manifest
+Product Brief → Core User Journeys → Capability Map → MVP Boundary → Page Inventory → Route / Screen Decisions → Page Manifest
 
 ## Expected Benefit
 
@@ -109,12 +96,7 @@ Design tokens should encode intentional visual decisions. Selecting colors, typo
 
 ## Proposed Change
 
-Page Manifest  
-→ Design Direction  
-→ Design Tokens  
-→ Base44 Foundation Prompt
-
-Design Direction should define visual personality, brand mood, customer/admin character, density, imagery role, typography/color direction, and surface philosophy without becoming a component-level specification.
+Page Manifest → Design Direction → Design Tokens → Base44 Foundation Prompt
 
 ## Expected Benefit
 
@@ -153,17 +135,7 @@ That weakens themeability and makes future brand changes expensive because visua
 
 Require Design Tokens to follow this dependency direction:
 
-Primitive Tokens  
-→ Semantic Tokens  
-→ Component Usage / Variants  
-→ UI
-
-Example:
-
-`rose-700`  
-→ `primary`  
-→ Primary Button  
-→ Booking CTA
+Primitive Tokens → Semantic Tokens → Component Usage / Variants → UI
 
 Application components should prefer semantic tokens whenever an appropriate semantic token exists.
 
@@ -177,10 +149,7 @@ Application components should prefer semantic tokens whenever an appropriate sem
 
 ## Risks / Cost
 
-- Adds token-system structure to relatively small prototypes
-- Too many semantic/component tokens could become unnecessary abstraction
-
-The workflow should therefore require meaningful semantic layering without demanding exhaustive tokenization before evidence exists.
+Adds token-system structure to relatively small prototypes. The workflow should require meaningful semantic layering without demanding exhaustive tokenization before evidence exists.
 
 ## Validation
 
@@ -200,41 +169,15 @@ The workflow captures product goals, journeys, capabilities, pages, and design d
 
 ## Observation / Problem
 
-The first Salon Booking Base44 foundation was generated successfully but in English/LTR because Persian-first requirements had never been made explicit.
-
-This was discovered only after the foundation pass, despite locale affecting typography, layout direction, navigation, steppers, sidebars, icons, calendars, dates, times, numbers, currency formatting, dummy data, and responsive behavior.
-
-Locale is therefore not merely a copy/translation concern. It can materially affect product UX and frontend foundation decisions.
+The first Salon Booking Base44 foundation was generated successfully but in English/LTR because Persian-first requirements had never been made explicit. Locale affects typography, layout direction, navigation, steppers, sidebars, icons, calendars, dates, times, numbers, currency formatting, dummy data, and responsive behavior.
 
 ## Proposed Change
 
 Add an explicit Locale & Market Requirements checkpoint near the beginning of discovery:
 
-Product Brief  
-→ Locale & Market Requirements  
-→ Core User Journeys  
-→ Capability Map  
-→ MVP Boundary  
-→ Page Inventory  
-→ Route / Screen Decisions  
-→ Page Manifest  
-→ Design Direction  
-→ Design Tokens  
-→ Foundation Prompt
+Product Brief → Locale & Market Requirements → Core User Journeys → Capability Map → MVP Boundary → Page Inventory → Route / Screen Decisions → Page Manifest → Design Direction → Design Tokens → Foundation Prompt
 
-At minimum, decide or explicitly defer:
-
-- Primary product language(s)
-- LTR / RTL direction
-- Typography/script requirements
-- Numeral policy
-- Calendar system
-- Date formatting
-- Time formatting
-- Currency/unit formatting
-- Locale-specific dummy content
-- RTL/LTR behavior for directional UI
-- Whether localization/i18n architecture is required now or later
+At minimum, decide or explicitly defer language, direction, typography/script, numerals, calendar, date/time formatting, currency, locale-specific dummy content, directional UI behavior, and i18n scope.
 
 ## Expected Benefit
 
@@ -246,18 +189,15 @@ At minimum, decide or explicitly defer:
 
 ## Risks / Cost
 
-- Adds another early discovery checkpoint
-- Teams may over-engineer internationalization when the product is intentionally single-locale
-
-The checkpoint should therefore distinguish between `locale requirements` and `full internationalization architecture`.
+Adds another early discovery checkpoint and can encourage premature internationalization. The checkpoint should distinguish locale requirements from full internationalization architecture.
 
 ## Validation
 
-Regenerate the Salon Booking foundation from scratch using a Persian-first, RTL-native Foundation Prompt v0.2 and compare it with v0.1. Evaluate whether early locale requirements produce a correct foundation without requiring a correction pass.
+Regenerate the Salon Booking foundation from scratch using a Persian-first, RTL-native Foundation Prompt v0.2 and compare it with v0.1.
 
 ---
 
-# WF-006 — Add a UI Quality Gate Before Page Approval
+# WF-006 — Review UI Early, Defer Non-Blocking Refinement to Local/Codex
 
 **Status:** Under Evaluation  
 **Discovered during:** Salon Booking Home Page  
@@ -265,82 +205,50 @@ Regenerate the Salon Booking foundation from scratch using a Persian-first, RTL-
 
 ## Current Behavior
 
-The emerging page loop is:
-
-Page Spec  
-→ Page Prompt  
-→ Generate  
-→ Review  
-→ Approve / Iterate  
-→ Next Page
-
-The review step is currently broad and can allow a page to be considered structurally approved while visible UI quality issues are intentionally deferred to a later polish phase.
+The emerging page loop initially considered fixing UI issues inside Base44 before approving each page.
 
 ## Observation / Problem
 
-The first generated Home page followed the approved hierarchy and product intent well, but visual review still exposed issues such as:
+The first generated Home page followed the approved product structure but exposed non-blocking UI issues such as inconsistent image quality, a broken specialist image, uneven portrait consistency, excessive vertical whitespace in places, and weak readability/contrast in some supporting copy.
 
-- inconsistent image/asset quality
-- a broken or missing specialist image placeholder
-- uneven visual consistency between specialist portraits
-- excessive vertical whitespace in some sections
-- small/low-emphasis supporting copy that may reduce readability
-- visual details that are acceptable individually but could compound if repeated across all later pages
-
-Deferring these issues until the end creates a risk that the same visual mistakes become patterns across the application. Fixing them after many pages exist may require larger global rework.
+These issues should be discovered early so they do not get forgotten. However, repeatedly spending Base44 generation cycles on visual polish can be expensive and inefficient when the project will later be exported and refined directly in code with Codex.
 
 ## Proposed Change
 
-Make UI Quality Review an explicit gate inside every page implementation loop:
+Separate **UI review** from **UI remediation**.
 
-Page Spec  
-→ Page Prompt  
-→ Generate  
-→ Product/Structure Review  
-→ UI Quality Review  
-→ Targeted Refinement  
-→ Approve & Freeze Page  
-→ Next Page
+During Base44 prototype generation:
 
-A page should not be frozen merely because its sections and routes are correct.
+Page Spec → Page Prompt → Generate → Product/Structure Review → UI Review → Log UI Debt → Accept Prototype → Next Page
 
-The UI Quality Review should deliberately inspect at least:
+After prototype completion/export:
 
-- visual hierarchy
-- spacing rhythm
-- typography/readability
-- color/contrast
-- asset/image consistency
-- broken/missing assets
-- responsive composition
-- RTL correctness
-- component consistency
-- CTA prominence
-- excessive card/pill/shadow usage
-- alignment with Design Direction and Design Tokens
+Export to Local → Codex Architecture Pass → UI Refinement Backlog → System/Component Fixes → Page-Specific Fixes → Responsive & Accessibility QA → Backend Integration
 
-Issues that reveal a reusable/global problem should be corrected before proceeding to many more pages.
+UI review remains mandatory during page generation, but non-blocking visual issues are logged instead of requiring another Base44 generation cycle.
 
-Page-specific imperfections can remain local and should not automatically trigger foundation changes.
+Blocking issues that make a page unusable, structurally wrong, or misleading should still be corrected before moving on.
 
 ## Expected Benefit
 
-- Prevents visual debt from propagating across generated pages
-- Catches reusable UI problems while the affected surface area is still small
-- Makes page approval mean both structurally correct and visually acceptable
-- Creates faster feedback loops for design tokens and reusable components
-- Reduces the size of the final polish/refactor pass
+- Detects visual debt while context is fresh
+- Avoids paying repeated generation cost for polish that is cheaper to perform in code
+- Produces one centralized, actionable refinement backlog for Codex
+- Allows recurring problems to be fixed globally at component/token level after export
+- Keeps Base44 focused on rapid product/UI prototyping
+- Preserves a final dedicated responsive/accessibility quality pass
 
 ## Risks / Cost
 
-- Adds an iteration cycle to each page
-- Can become subjective or lead to endless polishing if no stopping criteria exist
+- UI debt can accumulate if the backlog is vague or not maintained
+- Later fixes may reveal that some issues should have been solved at foundation level
+- Too much deferred work could make the exported prototype harder to normalize
 
-The review must therefore distinguish between blocking UI defects and optional polish. The goal is to prevent repeated design debt, not to perfect every pixel before moving forward.
+The backlog therefore needs page, issue, severity, scope, and likely remediation level (global/component/page) so Codex can prioritize systemic fixes before one-off page fixes.
 
 ## Validation
 
-Apply a targeted UI refinement pass to Home before starting Services. Then observe whether the corrections create reusable rules/components that improve subsequent pages with fewer repeated fixes.
+Continue generating pages while logging UI debt. After export, measure whether Codex can resolve recurring issues centrally with fewer edits than repeated Base44 refinement would have required.
 
 ---
 
