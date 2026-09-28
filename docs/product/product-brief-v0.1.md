@@ -11,14 +11,7 @@ Service-based website and booking platform for a women's beauty salon.
 
 # Problem
 
-Traditional appointment management for beauty salons can become difficult when bookings depend on:
-
-- Phone calls
-- In-person scheduling
-- Messaging
-- Manual calendars
-- Staff memory
-- Repeated communication about available times
+Traditional appointment management for beauty salons can become difficult when bookings depend on phone calls, in-person scheduling, messaging, manual calendars, staff memory, and repeated communication about available times.
 
 The product should make discovering, booking, and managing salon appointments significantly easier for both customers and salon staff.
 
@@ -63,7 +56,6 @@ Their goals may include:
 - Manage specialists
 - Manage staff schedules and availability
 - Manage portfolio content
-- Manage reviews
 - Configure booking behavior
 - Monitor salon activity
 
@@ -73,43 +65,53 @@ Exact roles and permissions have not yet been defined.
 
 # Product Surfaces
 
-The product currently appears to require two major experiences:
+The product has two major experiences:
 
 ## Customer Experience
 
-Public discovery and appointment booking.
+Public discovery, booking, and customer appointment management.
 
 ## Salon Management System
 
-Internal operational experience for managing appointments and salon resources.
+Internal operational experience for managing appointments, customers, services, specialists, schedules, and salon configuration.
 
 These experiences may share the same application/repository but should be treated as distinct product surfaces.
 
 ---
 
+# Approved Booking Model v0.1
+
+The following product decisions are approved for the current discovery baseline:
+
+1. A customer can select multiple services in one booking.
+2. Different services within the booking may be handled by different specialists.
+3. Specialist selection is optional. Customers may choose a specific specialist or `Any specialist`.
+4. Booking direction is: Services → Specialist preference → Date / compatible availability → Customer details → Review → Confirm.
+5. Guest booking is supported using a mobile number; creating an account is not mandatory for the initial direction.
+6. The product should remain ready for future deposit/online payment, but payment is not mandatory in the initial prototype/MVP.
+7. Customers should be able to cancel or reschedule appointments subject to salon policies.
+8. Waitlist is a future capability and is outside the initial MVP.
+
+---
+
 # Primary Customer Journey
 
-Initial happy-path hypothesis:
+Current approved direction:
 
-Home  
-→ Explore Services  
-→ View Service  
-→ Choose Service  
-→ Choose Specialist  
-→ Choose Date  
-→ View Available Times  
-→ Choose Time  
-→ Authenticate / Enter Customer Details  
+Home / Discovery  
+→ Explore Services / Portfolio / Specialists  
+→ Select one or more Services  
+→ Choose Specialist preference per Service (`specific` or `Any`)  
+→ Choose Date / View Compatible Availability  
+→ Enter Customer Details  
 → Review Booking  
-→ Deposit / Payment if Required  
+→ Confirm Booking  
 → Booking Confirmation  
 → My Appointments
 
-Important UX hypothesis:
+Customers should be able to explore services, specialists, prices, and availability before customer details/authentication become necessary.
 
-Customers should preferably be able to explore services, specialists, prices, and availability before being forced to create an account.
-
-Authentication should happen closer to booking confirmation unless later product requirements indicate otherwise.
+See `core-journeys-v0.1.md` for the complete journey baseline.
 
 ---
 
@@ -117,15 +119,12 @@ Authentication should happen closer to booking confirmation unless later product
 
 Booking should not be treated as the end of the customer lifecycle.
 
-Potential lifecycle:
+Current direction:
 
 Booking  
 → Reminder  
 → Appointment  
-→ Review  
-→ Rebook
-
-Future customer-retention capabilities may extend this journey.
+→ Future Review / Rebook opportunities
 
 ---
 
@@ -133,144 +132,96 @@ Future customer-retention capabilities may extend this journey.
 
 The product should not clone an existing platform.
 
-Current reference products:
-
 ## Fresha
 
-Primary inspiration for:
-
-- Overall salon booking product model
-- Appointment ecosystem
-- Services
-- Staff/resources
-- Client management
+Inspiration for overall salon booking product model, appointments, services, staff/resources, and client management.
 
 ## Booksy
 
-Primary inspiration for:
-
-- Customer booking flow
-- Service discovery
-- Specialist discovery
-- Availability
-- Rebooking
-- Customer-facing booking experience
+Inspiration for customer booking flow, service/specialist discovery, availability, rebooking, and customer-facing experience.
 
 ## Vagaro
 
-Primary inspiration for:
-
-- Salon operations
-- Calendar management
-- Staff/provider management
-- Administrative workflows
+Inspiration for salon operations, calendar management, staff/provider management, and administrative workflows.
 
 These references are for product research, not visual copying.
 
 ---
 
-# Potential Future Capabilities
+# Current MVP Direction
 
-Not all of these belong in the MVP.
+The initial product scope focuses on proving the end-to-end booking and salon-management loop.
 
-Candidate capabilities include:
+Core MVP direction includes:
 
-- Smart waitlist
-- Loyalty points
-- Gift cards
-- Promo codes
-- Service packages
-- Memberships
-- Favorite specialists
-- Favorite services
-- Book again
-- Before/after portfolio
-- Customer preferences
-- Customer history
-- Service notes
-- Birthday offers
-- Referral program
-- Automated reminders
-- Cancellation rules
-- Deposits
+- Salon/service discovery
+- Services
+- Specialists
+- Portfolio/gallery
+- Availability
+- Multi-service booking
+- Guest customer flow
+- Booking confirmation
+- My Appointments
+- Cancel / Reschedule
+- Reminder capability
+- Management calendar
+- Appointment management
+- Customer management
+- Service management
+- Specialist management
+- Specialist schedules
+- Basic salon/booking settings
+
+Explicitly outside the initial MVP:
+
+- Mandatory online payment/deposit
+- Waitlist
 - Reviews
-- Special offers
+- Favorites
+- Loyalty
+- Memberships
+- Packages
+- Gift cards
+- Referral
+- Promotions
+- Advanced reporting
 - Personalized recommendations
-- Notifications
 
-These remain backlog candidates until prioritized.
+See `capability-map-v0.1.md` for the detailed capability boundary.
 
 ---
 
-# Important Booking Questions
+# Important Open Booking Questions
 
-The booking model is not yet fully defined.
-
-Questions requiring discovery include:
-
-## Multiple Services
-
-Can a customer book multiple services in one booking?
-
-Example:
-
-Hair Color  
-+  
-Manicure
-
-## Multiple Specialists
-
-If multiple services are booked, can different specialists perform each service?
-
-Example:
-
-Hair Color → Specialist A  
-Manicure → Specialist B
+The product direction is clearer, but several policy/scheduling details remain intentionally unresolved.
 
 ## Duration
 
-Services may have different durations.
-
-Some may have fixed durations while others may vary.
-
-The exact scheduling rules are not yet defined.
+Services may have different durations. Some may have fixed durations while others may eventually vary.
 
 ## Specialist Capabilities
 
-Can every specialist perform every service?
-
-Likely not.
-
-The relationship between services and specialists must be defined.
+Not every specialist is expected to perform every service. Service-to-specialist eligibility must be represented in the product.
 
 ## Specialist Availability
 
-Specialists will likely have individual working schedules and availability.
-
-Exact rules remain undefined.
+Specialists have individual working schedules and availability.
 
 ## Salon Resources
 
-Some services may require resources in addition to a specialist.
+Some services may eventually require resources in addition to a specialist, such as a chair, room, equipment, or device.
 
-Examples could include:
+Resource-aware scheduling is not yet confirmed as an MVP requirement.
 
-- Chair
-- Room
-- Equipment
-- Device
+## Booking Policies
 
-Whether resource-aware scheduling is required for the MVP remains undecided.
-
-## Booking Rules
-
-Still undefined:
+Still to be defined:
 
 - Minimum advance booking time
 - Maximum advance booking window
 - Cancellation deadline
 - Rescheduling rules
-- Deposits
 - No-show handling
 - Late arrival rules
 - Buffer time between appointments
@@ -282,43 +233,33 @@ Still undefined:
 At a conceptual level, appointment availability may eventually depend on:
 
 Service  
-+ Specialist  
++ Specialist Capability  
 + Duration  
-+ Schedule  
++ Specialist Schedule  
 + Existing Appointments  
++ Salon Rules  
 + Possibly Resource  
-= Available Time Slots
+= Compatible Booking Options
 
-This is a product hypothesis only.
-
-Backend architecture and scheduling algorithms should not be designed yet.
-
----
-
-# MVP Status
-
-MVP scope has not yet been finalized.
-
-Current discovery should first establish:
-
-1. Core user journeys
-2. Core capabilities
-3. Booking model
-4. Customer vs management responsibilities
-5. Route/screen structure
-
-Only then should the final MVP page manifest be created.
+This is a product hypothesis only. Backend architecture and scheduling algorithms should not be designed yet.
 
 ---
 
 # Current Phase
 
-**Product Discovery**
+**Product Discovery — MVP boundary established**
+
+Completed discovery artifacts:
+
+- Product Brief v0.1
+- Core User Journeys v0.1
+- Capability Map / MVP Boundary v0.1
+- Candidate Page Inventory v0.1
 
 Next expected activity:
 
-Core User Journeys  
-→ Capability Map  
-→ Booking Decisions  
-→ Page/Screen Decisions  
-→ Page Manifest
+Revise Page Inventory using MVP Boundary  
+→ Route / Screen Decisions  
+→ Final Page Manifest  
+→ Design Tokens  
+→ Base44 Foundation
