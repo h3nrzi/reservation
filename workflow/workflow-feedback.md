@@ -7,9 +7,7 @@
 
 This document records problems, observations, successful patterns, and potential improvements discovered while applying the workflow to real projects.
 
-Findings should not automatically modify the current workflow.
-
-They should provide evidence for future workflow versions.
+Findings should not automatically modify the current workflow. They should provide evidence for future workflow versions.
 
 ---
 
@@ -53,20 +51,9 @@ For example, a booking experience may conceptually contain:
 - Enter details
 - Review booking
 
-These are distinct product steps but are not necessarily distinct pages/routes.
+These are distinct product steps but are not necessarily distinct pages/routes. They could instead be steps inside one route, components, modals, drawers, nested screens, or separate routes.
 
-They could instead be:
-
-- Steps inside one route
-- Components inside a booking flow
-- Modals
-- Drawers
-- Nested screens
-- Separate routes
-
-A simple page list does not contain enough product information to make that decision correctly.
-
-The same issue appeared when considering the management side of the salon application.
+A simple page list does not contain enough product information to make that decision correctly. The same issue appeared when considering the management side of the salon application.
 
 ## Proposed Improvement
 
@@ -93,16 +80,54 @@ This should reduce:
 
 ## Validation Required
 
-Continue the salon project using this expanded discovery process.
+Continue the salon project using this expanded discovery process. After the Page Manifest is produced, evaluate whether the additional steps improved route decisions, reduced ambiguity, or added unnecessary process.
 
-After the Page Manifest is produced, evaluate whether the additional steps:
+---
 
-- improved route decisions
-- reduced ambiguity
-- added unnecessary process
-- should become mandatory in v0.2
+# WF-002 — Explicit MVP Boundary Before Final Page Inventory
 
-Do not mark this change as accepted until tested further.
+**Status:** Under Evaluation  
+**Discovered during:** Salon Booking Project  
+**Candidate Version:** v0.2
+
+## Current Behavior
+
+The emerging discovery sequence identifies product capabilities and then moves toward page/screen definition.
+
+## Observation / Problem
+
+A capability map naturally includes both essential product capabilities and attractive future capabilities such as waitlists, loyalty, reviews, payments, promotions, memberships, gift cards, and reporting.
+
+If page inventory is finalized directly from the full capability map, future capabilities can accidentally become part of the Base44 prototype. This increases page count, product complexity, and prototype scope before the core booking loop has been validated.
+
+## Proposed Change
+
+Add an explicit MVP boundary before final page inventory:
+
+Product Brief  
+→ Core User Journeys  
+→ Capability Map  
+→ MVP Boundary  
+→ Page Inventory  
+→ Route / Screen Decisions  
+→ Page Manifest
+
+## Expected Benefit
+
+- Keeps Base44 focused on the first product scope.
+- Prevents backlog capabilities from silently becoming prototype requirements.
+- Makes page inventory easier to reason about.
+- Creates a durable distinction between `not now` and `not part of the product`.
+- Reduces wasted UI generation and later deletion.
+
+## Risks / Cost
+
+- Adds another explicit discovery checkpoint.
+- Poor MVP decisions could prematurely exclude capabilities that materially affect UX architecture.
+
+## Validation
+
+Use the Salon Booking Project's MVP boundary to revise the candidate page inventory. Evaluate whether it produces a smaller, clearer, and more coherent Page Manifest without blocking obvious future evolution.
 
 ---
 
