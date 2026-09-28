@@ -41,13 +41,30 @@ After export, Codex should first look for systemic fixes at token/layout/compone
 
 ---
 
+# Services `/services`
+
+**Prototype status:** Product/structure approved  
+**UI remediation status:** Deferred to local/Codex phase
+
+| ID | Severity | Scope | Issue | Intended Direction |
+|---|---|---|---|---|
+| UI-SERVICES-001 | Medium | Component / Layout | Desktop service grid leaves an awkward incomplete final row with a single card, creating visual imbalance and excessive empty space. | Make the listing layout robust for arbitrary item counts; choose responsive column/count behavior or list composition that avoids accidental orphan-card imbalance. |
+| UI-SERVICES-002 | Medium | Global / Typography | Small orange/accent supporting copy remains low-emphasis and can be difficult to read, repeating the Home issue. | Revisit semantic accent/muted text color, minimum text size and contrast globally rather than fixing this page alone. |
+| UI-SERVICES-003 | Medium | Component | Service cards contain several small metadata/actions competing at the bottom, making price, duration, details and booking hierarchy less immediate than it could be. | Establish a clearer reusable service-card information hierarchy and action priority during Codex component normalization. |
+| UI-SERVICES-004 | Low | Component / Asset | Service imagery is generally coherent but repeated hair imagery/crops can make distinct hair services feel visually similar. | Improve service-specific asset mapping and crop rules during asset normalization. |
+| UI-SERVICES-005 | Medium | Mobile / Typography | On the narrow mobile capture, card copy and metadata become visually dense and very small relative to the image/card width. | Audit mobile card typography, padding, metadata layout and minimum readable sizes after export. |
+| UI-SERVICES-006 | Low | Page / Layout | The two conversion sections near the bottom (`شروع رزرو` guidance and final booking CTA) feel somewhat repetitive when stacked close together. | During local refinement, evaluate whether both add distinct value; merge or differentiate them if the duplication persists in real interaction review. |
+
+---
+
 # Cross-Page Issues
 
 Issues should move here when repeated on multiple pages or when review indicates that the correct fix belongs to the shared system rather than a single page.
 
 | ID | Severity | Scope | Issue | Evidence | Intended Direction |
 |---|---|---|---|---|---|
-| UI-GLOBAL-001 | Medium | Global | No explicit production-ready visual asset strategy exists yet. | First observed on Home specialist/gallery imagery. | Define image categories, aspect ratios, crop rules, fallback behavior, and consistent visual direction before final UI polish. |
+| UI-GLOBAL-001 | Medium | Global | No explicit production-ready visual asset strategy exists yet. | Observed on Home specialist/gallery imagery and Services service imagery. | Define image categories, aspect ratios, crop rules, fallback behavior, and consistent visual direction before final UI polish. |
+| UI-GLOBAL-002 | Medium | Global / Typography | Small accent/orange supporting text has insufficient visual readability/emphasis across multiple public pages. | Repeated on Home and Services. | Re-evaluate semantic text/accent tokens, contrast, minimum font sizes and usage rules centrally. |
 
 ---
 
