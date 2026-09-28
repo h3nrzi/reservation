@@ -111,7 +111,7 @@ Home / Discovery
 
 Customers should be able to explore services, specialists, prices, and availability before customer details/authentication become necessary.
 
-See `core-journeys-v0.1.md` for the complete journey baseline.
+See `core-journeys.md` for the complete journey baseline.
 
 ---
 
@@ -188,7 +188,7 @@ Explicitly outside the initial MVP:
 - Advanced reporting
 - Personalized recommendations
 
-See `capability-map-v0.1.md` for the detailed capability boundary.
+See `capability-map.md` for the detailed capability boundary.
 
 ---
 
@@ -244,22 +244,3 @@ Service
 This is a product hypothesis only. Backend architecture and scheduling algorithms should not be designed yet.
 
 ---
-
-# Current Phase
-
-**Product Discovery — MVP boundary established**
-
-Completed discovery artifacts:
-
-- Product Brief v0.1
-- Core User Journeys v0.1
-- Capability Map / MVP Boundary v0.1
-- Candidate Page Inventory v0.1
-
-Next expected activity:
-
-Revise Page Inventory using MVP Boundary  
-→ Route / Screen Decisions  
-→ Final Page Manifest  
-→ Design Tokens  
-→ Base44 Foundation

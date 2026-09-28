@@ -83,7 +83,7 @@ Muted Rose should act as a controlled brand/accent color rather than turning the
 
 Success, warning, destructive/error, and informational states should be semantic and remain distinguishable from the brand palette.
 
-Exact color values are deferred to Design Tokens v0.1.
+Exact color values are defined in the current Design Tokens document.
 
 ---
 
@@ -220,7 +220,7 @@ Base44 and later implementation should avoid:
 
 This document defines intent.
 
-`design-tokens-v0.1.md` should translate this direction into concrete reusable values and semantic tokens covering at minimum:
+`design-tokens.md` should translate this direction into concrete reusable values and semantic tokens covering at minimum:
 
 - Primitive colors
 - Semantic colors
@@ -247,13 +247,6 @@ During the Base44 foundation and page implementation phases, evaluate whether th
 - Keeps the salon identity premium without becoming stereotypical
 - Gives enough constraint without preventing useful design exploration
 
-Findings should be recorded in `shared/workflow/workflow-feedback.md` where they affect the workflow itself.
+Findings that affect the shared workflow should be recorded in `shared/workflow/observations.md`.
 
 ---
-
-# Next Step
-
-Design Direction v0.1  
-→ Design Tokens v0.1  
-→ Base44 Foundation Prompt  
-→ Foundation Review

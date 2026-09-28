@@ -511,13 +511,3 @@ Home v0.1 is ready for review when:
 - no unrelated product features/routes were invented
 
 ---
-
-# Next Step
-
-Home Page Spec v0.1  
-→ Base44 Home Prompt v0.1  
-→ Generate Home Only  
-→ STOP  
-→ Home Review  
-→ Approve / Iterate  
-→ Next Page

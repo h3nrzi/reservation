@@ -207,13 +207,3 @@ The initial product scope should focus on the booking loop and the minimum salon
 5. Payment readiness should influence future contracts/architecture, but payment UI should not dominate the first prototype.
 
 ---
-
-# Next Step
-
-Use the approved journeys and MVP boundary to revise the candidate page inventory.
-
-Capability Map  
-→ MVP Boundary  
-→ Page Inventory Revision  
-→ Route / Screen Decisions  
-→ Final Page Manifest

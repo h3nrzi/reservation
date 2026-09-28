@@ -350,7 +350,7 @@ Breakdown:
 
 This replaces the earlier 41-item candidate inventory as the approved route/page baseline.
 
-The earlier inventory remains useful as discovery history but must not be used as the Base44 page count.
+This 23-route manifest is the current source of truth for the Base44 page count.
 
 ---
 
@@ -368,11 +368,3 @@ The first Base44 foundation pass should:
 8. Stop after the foundation pass for review.
 
 ---
-
-# Next Step
-
-Page Manifest v0.1  
-→ Design Direction  
-→ Design Tokens v0.1  
-→ Base44 Foundation Prompt  
-→ Foundation Review

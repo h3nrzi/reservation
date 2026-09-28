@@ -7,11 +7,9 @@
 
 ## Purpose
 
-Revise Design Tokens v0.1 for the approved Persian locale requirements while preserving the visual system decisions that remain valid.
+Define the current standalone visual and locale token system for the Persian-first Salon Booking prototype. This document is the source of truth for the approved foundation.
 
-This version supersedes v0.1 for future Base44 generation. v0.1 remains archived as project history.
-
-Token architecture remains:
+Token architecture:
 
 Primitive Tokens  
 → Semantic Tokens  
@@ -22,7 +20,7 @@ Primitive Tokens
 
 # 1. Primitive Colors
 
-Color primitives remain unchanged from v0.1.
+Use these primitive colors centrally.
 
 ## Warm Neutral
 
@@ -62,7 +60,7 @@ Muted Rose remains a restrained accent, not the dominant application color.
 
 # 2. Semantic Colors
 
-Semantic mappings remain unchanged:
+Map application colors through these semantic tokens:
 
 | Semantic Token | Mapping |
 |---|---|
@@ -83,11 +81,11 @@ Semantic mappings remain unchanged:
 | input | `warm-200` |
 | ring | `rose-500` |
 
-Independent accessible semantic feedback colors remain required for success, warning, danger, and info.
+Define independent accessible semantic feedback colors for success, warning, danger, and info.
 
 ---
 
-# 3. Typography — Persian Revision
+# 3. Persian Typography
 
 ## Primary Typeface
 
@@ -95,7 +93,7 @@ Independent accessible semantic feedback colors remain required for success, war
 
 Vazirmatn is the primary typeface for Persian customer, booking, and admin UI.
 
-It replaces the previous v0.1 pairing of Cormorant Garamond + Inter for Persian user-facing content.
+Do not rely on Latin display typography for Persian user-facing content.
 
 Use typography hierarchy, scale, weight, whitespace, composition, and imagery to create the premium/editorial character rather than forcing a Latin display typeface into Persian UI.
 
@@ -116,7 +114,7 @@ Do not introduce a second Persian display font in Foundation v0.2 without explic
 
 # 4. Type Scale
 
-The v0.1 scale remains the initial baseline:
+Use this initial type scale:
 
 | Token | Size |
 |---|---:|
@@ -214,7 +212,7 @@ Formatting should eventually be centralized through locale-aware utilities rathe
 
 # 8. Radius
 
-Unchanged from v0.1:
+Use these radius tokens:
 
 | Token | Value |
 |---|---:|
@@ -224,7 +222,7 @@ Unchanged from v0.1:
 | radius-xl | 24px |
 | radius-full | 9999px |
 
-Guidance remains:
+Usage guidance:
 
 - Button → `radius-md`
 - Input/control → `radius-md`
@@ -238,7 +236,7 @@ Avoid pill styling everywhere.
 
 # 9. Shadows
 
-Retain restrained `shadow-sm`, `shadow-md`, and `shadow-lg` vocabulary.
+Use a restrained `shadow-sm`, `shadow-md`, and `shadow-lg` vocabulary.
 
 Prefer whitespace and subtle borders before shadows.
 
@@ -286,7 +284,7 @@ Full-width imagery/sections remain allowed where appropriate.
 
 # 12. Control Heights & Density
 
-Unchanged:
+Use these control-height tokens:
 
 | Token | Value |
 |---|---:|
@@ -362,8 +360,14 @@ Use bidi-aware implementation where required rather than relying on accidental b
 
 # 16. Accessibility
 
-Preserve all v0.1 accessibility requirements plus:
+The implementation must preserve:
 
+- sufficient text/background contrast
+- readable muted text
+- visible keyboard focus
+- adequate touch and click targets
+- status meaning beyond color alone
+- responsive typography
 - Persian text readability
 - adequate Persian line height
 - logical RTL keyboard/focus flow
@@ -377,7 +381,7 @@ Premium styling must never depend on low contrast.
 
 # 17. Dark Mode
 
-Still outside scope.
+Dark mode is outside the current prototype scope.
 
 Do not implement dark mode in Foundation v0.2.
 
@@ -400,7 +404,7 @@ Do not implement dark mode in Foundation v0.2.
 
 # 19. Token Architecture Rule
 
-Preferred dependency direction remains:
+Preferred dependency direction:
 
 Primitive Tokens  
 → Semantic Tokens  
@@ -437,45 +441,3 @@ Evaluate whether Base44:
 - preserves all 23 approved routes
 
 ---
-
-# Version Delta from v0.1
-
-Changed:
-
-- Persian-first typography
-- RTL-native layout policy
-- logical-direction styling guidance
-- Persian numeral presentation
-- Jalali UI requirement
-- 24-hour time
-- Toman presentation
-- mixed-direction content guidance
-- right-side admin sidebar
-- Persian responsive/accessibility validation
-
-Preserved:
-
-- Warm Luxury direction
-- primitive colors
-- semantic color architecture
-- radius
-- shadows
-- spacing magnitudes
-- layout dimensions
-- control heights
-- responsive breakpoint strategy
-- density model
-- interaction-state model
-- no dark mode
-- Primitive → Semantic → Component token architecture
-
----
-
-# Next Step
-
-Design Tokens v0.2  
-→ Base44 Foundation Prompt v0.2 from scratch  
-→ Generate Persian RTL Foundation  
-→ STOP  
-→ Foundation Review  
-→ Compare against v0.1

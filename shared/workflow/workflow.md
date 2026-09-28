@@ -2,9 +2,7 @@
 
 **Version:** 0.2
 
-**Status:** Active for new POCs / under evaluation
-
-**Supersedes:** v0.1 for projects started after Salon Booking
+**Status:** Current for new POCs / under evaluation
 
 ## Purpose
 
@@ -23,7 +21,7 @@ The workflow is intentionally evolutionary.
 
 Real project experience takes precedence over preserving previous workflow decisions. Problems discovered while using the workflow should be recorded and considered for future versions.
 
-This version incorporates [WF-001 through WF-007](workflow-feedback.md) from Salon Booking. Their adoption is a process decision, not proof that every change has been validated across projects. Record the result of using them on the next POC.
+This version incorporates lessons from Salon Booking. It has not yet been validated across other projects. Record the result of using it on the next POC in [workflow observations](observations.md).
 
 The central portfolio repository stores shared workflow and project documents. After a prototype is exported, the product's code repository is the authority for implementation and technical decisions. Link the two records from the project README.
 
@@ -61,13 +59,13 @@ Initial artifact: `product-brief.md` in the project's documentation directory.
 
 Before deciding routes or asking Base44 to create pages, work through this sequence:
 
-1. **Locale and market requirements:** Decide or explicitly defer language, writing direction, script and typography, numerals, calendar, date/time formatting, currency, locale-specific sample content, directional UI behavior, and internationalization scope. Capture the result in `locale-requirements.md`. Do not require a full i18n architecture unless the product needs one. *(WF-005)*
-2. **Core journeys:** Describe what each user role needs to accomplish, including important alternate and failure paths. Capture them in `core-journeys.md`. *(WF-001)*
-3. **Capability map:** Group the capabilities needed to support those journeys without treating every capability as a page. Capture them in `capability-map.md`. *(WF-001)*
-4. **POC/MVP boundary:** Mark capabilities as in scope, later, or unresolved. Do this before final page planning so future features do not silently enter the prototype. Record the boundary in the capability map or a separate scope document. *(WF-002)*
-5. **Candidate page inventory:** List candidate screens after the scope boundary. Classify routes, nested views, booking or task steps, tabs, drawers, and dialogs rather than equating each step with a page. *(WF-001)*
-6. **Route and screen decisions:** Resolve the navigation and layout implications, then approve a `page-manifest.md` for the prototype. *(WF-001)*
-7. **Design direction:** Agree on visual character, audience, density, imagery, and accessibility goals before choosing token values. Capture this in `design-direction.md`. *(WF-003)*
+1. **Locale and market requirements:** Decide or explicitly defer language, writing direction, script and typography, numerals, calendar, date/time formatting, currency, locale-specific sample content, directional UI behavior, and internationalization scope. Capture the result in `locale-requirements.md`. Do not require a full i18n architecture unless the product needs one.
+2. **Core journeys:** Describe what each user role needs to accomplish, including important alternate and failure paths. Capture them in `core-journeys.md`.
+3. **Capability map:** Group the capabilities needed to support those journeys without treating every capability as a page. Capture them in `capability-map.md`.
+4. **POC/MVP boundary:** Mark capabilities as in scope, later, or unresolved. Do this before final page planning so future features do not silently enter the prototype. Record the boundary in the capability map or a separate scope document.
+5. **Candidate page inventory:** List candidate screens after the scope boundary. Classify routes, nested views, booking or task steps, tabs, drawers, and dialogs rather than equating each step with a page.
+6. **Route and screen decisions:** Resolve the navigation and layout implications, then approve a `page-manifest.md` for the prototype.
+7. **Design direction:** Agree on visual character, audience, density, imagery, and accessibility goals before choosing token values. Capture this in `design-direction.md`.
 
 The sequence is a decision order, not a demand for seven elaborate documents. Keep each artifact only as detailed as the next decision needs. Do not make detailed backend or database decisions at this stage.
 
@@ -107,7 +105,7 @@ Avoid duplicating application shells across pages.
 
 ## 4. Design Tokens
 
-Translate the approved design direction and locale requirements into a visual system before individual page design. *(WF-003, WF-005)*
+Translate the approved design direction and locale requirements into a visual system before individual page design.
 
 Tokens should cover relevant decisions such as:
 
@@ -118,7 +116,7 @@ Tokens should cover relevant decisions such as:
 - Layout dimensions
 - Semantic states
 
-Use the dependency direction **primitive tokens → semantic tokens → component variants/usage → UI**. Primitive values belong in the token foundation; application components should use semantic tokens where an appropriate token exists. Do not demand exhaustive tokens before there is evidence for them. *(WF-004)*
+Use the dependency direction **primitive tokens → semantic tokens → component variants/usage → UI**. Primitive values belong in the token foundation; application components should use semantic tokens where an appropriate token exists. Do not demand exhaustive tokens before there is evidence for them.
 
 Examples of semantic tokens:
 
@@ -187,7 +185,7 @@ Stop and review the shared foundation before proceeding.
 
 Implement pages incrementally rather than asking Base44 to generate the entire application in one pass.
 
-Preferred loop: **Page spec → Page prompt → Generate → Product/structure review → UI review → Log UI debt → Accept prototype page → Next page.** *(WF-006)*
+Preferred loop: **Page spec → Page prompt → Generate → Product/structure review → UI review → Log UI debt → Accept prototype page → Next page.**
 
 Correct a blocking issue before moving on when a page is unusable, structurally wrong, or misleading. Record non-blocking visual issues in a centralized UI refinement backlog for the later local/Codex pass. A backlog item should identify the page, issue, severity, likely scope (global, component, or page), and proposed remedy. Do not use repeated Base44 generation cycles for routine polish when the local pass can resolve it more efficiently.
 
@@ -250,7 +248,7 @@ Base44-generated architecture is treated as input, not as an unquestionable arch
 
 Base44 may still be used for isolated product/UI exploration, but production engineering decisions happen in the local repository.
 
-After architecture assessment and before backend integration, address the UI refinement backlog in this order: system/token issues, shared component issues, page-specific issues, then responsive and accessibility QA. Recheck the cross-page journeys after these fixes. *(WF-006)*
+After architecture assessment and before backend integration, address the UI refinement backlog in this order: system/token issues, shared component issues, page-specific issues, then responsive and accessibility QA. Recheck the cross-page journeys after these fixes.
 
 ---
 
@@ -519,7 +517,7 @@ Review relevant areas including:
 
 # Cross-Cutting Rule — Expiring Tool Budgets
 
-When a tool has credits or capacity that will expire or reset, check the remaining budget after the primary planned work. If useful, already-understood backlog work fits, complete a bounded low-risk item before reset. Prefer a small known fix, UI cleanup, or relevant QA over speculative analysis. Leaving unused capacity is acceptable. *(WF-007)*
+When a tool has credits or capacity that will expire or reset, check the remaining budget after the primary planned work. If useful, already-understood backlog work fits, complete a bounded low-risk item before reset. Prefer a small known fix, UI cleanup, or relevant QA over speculative analysis. Leaving unused capacity is acceptable.
 
 Do not create work merely to consume quota. Do not use a reset window to justify new features, risky architecture changes, broad refactors, or work unlikely to finish within the remaining budget. If quota rolls over, use has a cost, or remaining capacity has future value, preserve it unless the planned work independently warrants spending it.
 
@@ -575,21 +573,21 @@ This workflow is not considered final.
 When project experience reveals a problem:
 
 1. Do not silently rewrite the workflow.
-2. Record the finding in `workflow-feedback.md`.
+2. Record the finding in `observations.md`.
 3. Continue with the best project decision when necessary.
 4. Evaluate the finding for the next workflow version.
 
 Record the workflow version used by each project in its project README. A newer shared version does not retroactively change the process record for an existing project.
 
-For the first POC using v0.2, record evidence in the feedback log at these checkpoints:
+For the first POC using v0.2, record evidence in the observations log at these checkpoints:
 
-- Did locale requirements prevent avoidable layout or content rework? *(WF-005)*
-- Did journeys, capability map, scope boundary, and route classification produce a clearer page manifest without excessive process? *(WF-001, WF-002)*
-- Did design direction and layered tokens make generated UI more consistent and easier to adjust? *(WF-003, WF-004)*
-- Did the UI backlog let the team move through pages while still resolving important issues after export? *(WF-006)*
-- Did the expiring-budget rule produce useful finished work without scope creep or waste? *(WF-007)*
+- Did locale requirements prevent avoidable layout or content rework?
+- Did journeys, capability map, scope boundary, and route classification produce a clearer page manifest without excessive process?
+- Did design direction and layered tokens make generated UI more consistent and easier to adjust?
+- Did the UI backlog let the team move through pages while still resolving important issues after export?
+- Did the expiring-budget rule produce useful finished work without scope creep or waste?
 
-Use the observations to revise the next version; do not mark these changes fully validated based only on Salon Booking.
+Use the observations to revise the current workflow and increment its version; do not mark these changes fully validated based only on Salon Booking.
 
 Versioning guideline:
 

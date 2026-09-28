@@ -4,26 +4,26 @@ This repository is the central record for a portfolio of distinct service-produc
 
 ## Start here
 
-- [Project catalog](portfolio/project-catalog.md) — the ten candidate POCs and their distinct product problems
-- [Shared workflow](shared/workflow/README.md) — v0.2 for new POCs, v0.1 history, and the feedback log
-- [Salon Booking](projects/salon-booking/README.md) — the existing project and its documents
-- [Home Services Marketplace](projects/home-services-marketplace/README.md) — the next POC, using workflow v0.2
-- [Project documentation guide](projects/README.md) — where to put documents for future POCs
+- [Project catalog](portfolio/project-catalog.md) — ten candidate POCs; none selected yet
+- [Current workflow](shared/workflow/workflow.md) — the shared process for future projects
+- [Salon Booking](projects/salon-booking/README.md) — the existing project's current documents
+- [Starting a project](projects/README.md) — how a new project session should use this repository
 
 ## Repository map
 
 ```text
-portfolio/                 Portfolio choices and project catalog
-shared/workflow/           Cross-project workflow and evidence for improvements
-projects/<project-slug>/   Documents and prompts for one product
+portfolio/                 Candidate projects and selection decisions
+shared/workflow/           Current cross-project workflow and future observations
+projects/salon-booking/    Existing project documents
+projects/<project-slug>/   Add only when a new project is selected
 ```
 
 ## Documentation rules
 
 1. Put a rule or process used across projects in `shared/`. Put product requirements, design, prompts, and implementation decisions in that project's directory.
 2. Every project has a `README.md` with its purpose, status, document index, and links to its code or prototype when available.
-3. Add a project directory when work on that project begins. Catalog entries alone do not imply a project has started.
-4. Keep important decisions in repository documents rather than only in chat history. Record workflow observations in the shared feedback log; change the workflow version deliberately.
-5. Preserve the original versioned documents. New versions should make their status and relationship to earlier versions clear.
+3. Create a project directory only after that project is selected in its own session. A catalog entry is an idea, not an active project.
+4. Keep current decisions in canonical documents. Replace a superseded draft instead of leaving multiple competing source-of-truth files; Git retains earlier revisions.
+5. Record new workflow observations separately and update the current workflow deliberately when evidence warrants it.
 
-The GitHub repository is the durable documentation record. Once a POC is exported for engineering, its own code repository becomes the source of truth for implementation, as described in the [current workflow](shared/workflow/workflow-v0.2.md).
+The GitHub repository is the durable documentation record. Once a POC is exported for engineering, its own code repository becomes the source of truth for implementation, as described in the [current workflow](shared/workflow/workflow.md).

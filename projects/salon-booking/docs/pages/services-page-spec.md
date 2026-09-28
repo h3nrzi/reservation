@@ -445,13 +445,3 @@ Services v0.1 is ready for prototype acceptance when:
 - non-blocking visual issues are captured for later Codex refinement
 
 ---
-
-# Next Step
-
-Services Page Spec v0.1  
-→ Base44 Services Prompt v0.1  
-→ Generate `/services` Only  
-→ Product/Structure Review  
-→ UI Review & Debt Logging  
-→ Accept Prototype  
-→ Service Detail Page Spec

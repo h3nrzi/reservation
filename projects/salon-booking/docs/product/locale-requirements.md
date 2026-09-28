@@ -385,11 +385,3 @@ The regenerated Base44 foundation should demonstrate:
 - No unnecessary language switcher/full i18n platform
 
 ---
-
-# Next Step
-
-Locale & Market Requirements v0.1  
-→ Design Tokens locale revision  
-→ Base44 Foundation Prompt v0.2 from scratch  
-→ Foundation v0.2 Review  
-→ Compare v0.1 vs v0.2

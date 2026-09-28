@@ -124,12 +124,3 @@ The following are valuable but are not currently treated as core journeys for th
 - Personalized recommendations
 
 ---
-
-# Next Discovery Step
-
-Core Journeys  
-→ Capability Map  
-→ MVP Boundary  
-→ Page Inventory Revision  
-→ Route / Screen Decisions  
-→ Final Page Manifest

@@ -1,10 +1,10 @@
 # Service POC catalog
 
-Salon Booking is the existing project. The ten candidates below were chosen for different product problems and workflows, not merely different service categories. Home Services Marketplace is the next POC.
+Salon Booking is the existing project. The ten candidates below were chosen for different product problems and workflows, not merely different service categories. The next project has not been selected.
 
 | Candidate | Distinct product problem | Status |
 | --- | --- | --- |
-| [Home Services Marketplace](../projects/home-services-marketplace/README.md) | Match customers with providers, quotes, and assignments | Started; workflow v0.2 |
+| Home Services Marketplace | Match customers with providers, quotes, and assignments | Candidate |
 | CarCare | Vehicle-centered service history and maintenance lifecycle | Candidate |
 | Property Management | Property, tenant, maintenance, and contractor operations | Candidate |
 | Moving Platform | Inventory, estimates, scheduling, and logistics | Candidate |
@@ -15,4 +15,4 @@ Salon Booking is the existing project. The ten candidates below were chosen for 
 | Renovation Management | Long-running phases, contractors, costs, and progress | Candidate |
 | Local Delivery Platform | Pickup, driver assignment, tracking, and delivery lifecycle | Candidate |
 
-Home Services Marketplace was selected first because its request/quote/assignment loop demonstrates a different product architecture from Salon Booking's service/availability/appointment loop. Its initial boundary is documented in the [capability map](../projects/home-services-marketplace/docs/product/capability-map-v0.1.md). For later selections, record the same rationale and create a directory under [`projects/`](../projects/README.md).
+When a project is selected in a new session, record why it differs from Salon Booking and the other candidates, define its initial POC boundary, and create its directory under [`projects/`](../projects/README.md).
