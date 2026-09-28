@@ -7,6 +7,7 @@ This repository is the central record for a portfolio of distinct service-produc
 - [Project catalog](portfolio/project-catalog.md) — the ten candidate POCs and their distinct product problems
 - [Shared workflow](shared/workflow/README.md) — v0.2 for new POCs, v0.1 history, and the feedback log
 - [Salon Booking](projects/salon-booking/README.md) — the existing project and its documents
+- [Home Services Marketplace](projects/home-services-marketplace/README.md) — the next POC, using workflow v0.2
 - [Project documentation guide](projects/README.md) — where to put documents for future POCs
 
 ## Repository map

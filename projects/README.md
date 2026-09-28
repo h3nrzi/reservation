@@ -11,4 +11,4 @@ Start each directory with a `README.md` containing:
 
 Add folders only when needed. Use `docs/product/`, `docs/design/`, `docs/pages/`, `docs/architecture/`, `docs/decisions/`, and `prompts/` as applicable. Keep drafts and versioned documents with the product they describe. Shared methods and rules belong in [`shared/`](../shared/workflow/README.md).
 
-Salon Booking is the first documented project. The next POC has not been selected from the ten candidates.
+Salon Booking is the first documented project. Home Services Marketplace is the next POC and the first to use workflow v0.2.
