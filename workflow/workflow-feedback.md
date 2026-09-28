@@ -131,6 +131,65 @@ Use the Salon Booking Project's MVP boundary to revise the candidate page invent
 
 ---
 
+# WF-003 — Design Direction Before Design Tokens
+
+**Status:** Under Evaluation  
+**Discovered during:** Salon Booking Project  
+**Candidate Version:** v0.2
+
+## Current Behavior
+
+The current workflow moves from Page Manifest directly to Design Tokens before the Base44 foundation pass.
+
+## Observation / Problem
+
+Design tokens should encode intentional visual decisions. If colors, typography, radius, shadows, density, and other tokens are selected without first agreeing on a visual/product direction, the token values become arbitrary implementation choices rather than a coherent design system.
+
+The salon project exposed this when choosing between distinct directions such as warm luxury, modern minimal, and soft premium. Each direction could produce a valid but materially different token system.
+
+## Proposed Change
+
+Add an explicit Design Direction checkpoint before Design Tokens:
+
+Page Manifest  
+→ Design Direction  
+→ Design Tokens  
+→ Base44 Foundation Prompt
+
+Design Direction should define enough intent to guide token creation, including where relevant:
+
+- Visual personality
+- Brand mood
+- Customer-facing character
+- Operational/admin character
+- Density
+- Photography/imagery role
+- Typography direction
+- Color direction
+- Surface/border/shadow philosophy
+- General interaction feel
+
+It should avoid prematurely specifying every component or raw implementation value.
+
+## Expected Benefit
+
+- Makes design tokens traceable to explicit design intent.
+- Reduces arbitrary color/radius/typography choices.
+- Improves consistency between customer and admin surfaces.
+- Gives Base44 clearer visual constraints before generation.
+- Makes later design changes easier because the rationale exists above the token layer.
+
+## Risks / Cost
+
+- Adds another discovery/design checkpoint.
+- An overly detailed Design Direction could become a premature design specification and reduce useful exploration.
+
+## Validation
+
+Apply the selected `Warm Luxury` direction to Design Tokens v0.1 for the Salon Booking Project. During Base44 generation, evaluate whether the direction materially improves consistency and reduces prompt correction cycles.
+
+---
+
 # Feedback Template
 
 Future findings should use:
